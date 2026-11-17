@@ -1,0 +1,1009 @@
+/**
+ * Selaras — Ritme Sehat Tanpa Beban
+ * Component Styles: Cards, Badges, Navigation, Widgets & Drawers
+ */
+
+/* ==========================================================================
+   CARDS & SURFACES
+   ========================================================================== */
+.selaras-card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  box-shadow: var(--shadow-subtle);
+  margin-bottom: 14px;
+  position: relative;
+  transition: transform var(--duration-fast) var(--ease-tactile),
+              box-shadow var(--duration-fast) var(--ease-tactile);
+}
+
+.selaras-card:active {
+  transform: scale(0.995);
+}
+
+.card-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.card-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--color-ink-secondary);
+}
+
+.card-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  background: var(--color-paper-subtle);
+  color: var(--color-ink-secondary);
+}
+
+.card-badge.pine {
+  background: var(--color-pine-light);
+  color: var(--color-pine);
+  border: 1px solid var(--color-pine-border);
+}
+
+.card-badge.river {
+  background: var(--color-river-light);
+  color: var(--color-river);
+  border: 1px solid var(--color-river-border);
+}
+
+.card-badge.clay {
+  background: var(--color-clay-light);
+  color: var(--color-clay);
+  border: 1px solid var(--color-clay-border);
+}
+
+.card-badge.ochre {
+  background: var(--color-ochre-light);
+  color: var(--color-ochre);
+  border: 1px solid var(--color-ochre-border);
+}
+
+/* ==========================================================================
+   APP TOP BAR & WEARABLE STATUS
+   ========================================================================== */
+.app-header {
+  padding: 10px 0 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.header-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wearable-sync-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 10px;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-ink-secondary);
+}
+
+.sync-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #2E8A5E;
+  box-shadow: 0 0 0 2px rgba(46, 138, 94, 0.2);
+  animation: pulse-gentle 3s infinite ease-in-out;
+}
+
+@keyframes pulse-gentle {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.7; }
+}
+
+.night-mode-toggle-btn {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-ink);
+  transition: all var(--duration-fast) ease;
+}
+
+.night-mode-toggle-btn:hover {
+  background: var(--color-paper-subtle);
+}
+
+/* ==========================================================================
+   QUIET INTELLIGENCE CONTEXTUAL CARD (UTAMA)
+   Prinsip: 1 Kartu Aksi Tenang di Layar Utama, tidak ada robotik chatbot
+   ========================================================================== */
+.context-orchestrator-card {
+  background: #F4EFE6;
+  border: 1px solid #DFD7C7;
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+body.night-mode .context-orchestrator-card {
+  background: #252D28;
+  border-color: #35423B;
+}
+
+.context-orchestrator-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--color-pine);
+  border-top-left-radius: var(--radius-lg);
+  border-bottom-left-radius: var(--radius-lg);
+}
+
+.context-tag-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.context-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--color-pine);
+}
+
+.context-time {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-ink-secondary);
+}
+
+.context-headline {
+  font-family: var(--font-serif);
+  font-size: 19px;
+  line-height: 1.35;
+  color: var(--color-ink);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.context-body {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--color-ink-secondary);
+  margin-bottom: 14px;
+}
+
+.context-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 11px 16px;
+  background: var(--color-pine);
+  color: #FFFFFF;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(35, 83, 64, 0.2);
+  transition: all var(--duration-fast) var(--ease-tactile);
+}
+
+.context-cta-btn:active {
+  transform: scale(0.98);
+  background: var(--color-pine-hover);
+}
+
+/* ==========================================================================
+   CHECK-IN EMOSI 1-KETUK (FR-02.1: < 3 Detik)
+   ========================================================================== */
+.emotion-picker-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.emotion-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 4px;
+  background: var(--color-paper-subtle);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-tactile);
+}
+
+.emotion-chip:hover {
+  background: var(--color-border-subtle);
+}
+
+.emotion-chip:active {
+  transform: scale(0.95);
+}
+
+.emotion-chip.selected {
+  background: var(--color-pine-light);
+  border-color: var(--color-pine);
+}
+
+.emotion-symbol {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.emotion-name {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.emotion-chip.selected .emotion-name {
+  color: var(--color-pine);
+  font-weight: 700;
+}
+
+/* Micro-affirmation banner below mood picker */
+.emotion-feedback-bar {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: var(--color-paper-subtle);
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  color: var(--color-ink-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ==========================================================================
+   PASSIVE BIOMETRICS STRIP (4 METRICS)
+   HRV, Detak Istirahat (RHR), Langkah, Tidur
+   ========================================================================== */
+.biometrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.metric-box {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 13px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 96px;
+  transition: transform var(--duration-fast) ease;
+}
+
+.metric-box:hover {
+  border-color: #D3CDC2;
+}
+
+.metric-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.metric-title {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--color-ink-secondary);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.metric-pill {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: var(--radius-pill);
+}
+
+.metric-pill.positive {
+  background: var(--color-pine-light);
+  color: var(--color-pine);
+}
+
+.metric-pill.neutral {
+  background: var(--color-paper-subtle);
+  color: var(--color-ink-secondary);
+}
+
+.metric-value-row {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.metric-num {
+  font-family: var(--font-mono);
+  font-size: 23px;
+  font-weight: 700;
+  color: var(--color-ink);
+  letter-spacing: -0.5px;
+}
+
+.metric-unit {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-ink-secondary);
+}
+
+.metric-footnote {
+  font-size: 11px;
+  color: var(--color-ink-secondary);
+  margin-top: 4px;
+}
+
+/* ==========================================================================
+   PELACAK HIDRASI CEPAT (1-KETUK +250ml / +500ml)
+   ========================================================================== */
+.hydration-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.hydration-info {
+  flex: 1;
+}
+
+.hydration-progress-track {
+  width: 100%;
+  height: 8px;
+  background: var(--color-paper-subtle);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  margin: 6px 0;
+}
+
+.hydration-progress-bar {
+  height: 100%;
+  background: var(--color-river);
+  border-radius: var(--radius-pill);
+  transition: width var(--duration-normal) var(--ease-tactile);
+}
+
+.quick-tap-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.quick-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-ink);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-tactile);
+}
+
+.quick-action-btn:active {
+  transform: scale(0.94);
+  background: var(--color-paper-subtle);
+}
+
+.quick-action-btn.river {
+  color: var(--color-river);
+  border-color: var(--color-river-border);
+  background: var(--color-river-light);
+}
+
+.quick-action-btn.river:active {
+  background: #D7E9EF;
+}
+
+/* ==========================================================================
+   SEDENTARY NUDGE BANNER (FR-01.3: >90 Menit Duduk)
+   ========================================================================== */
+.sedentary-alert-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--color-clay-light);
+  border: 1px solid var(--color-clay-border);
+  border-radius: var(--radius-md);
+  margin-bottom: 14px;
+  font-size: 12.5px;
+  color: var(--color-ink);
+}
+
+.sedentary-text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.sedentary-btn {
+  padding: 5px 10px;
+  background: var(--color-clay);
+  color: #FFFFFF;
+  border: none;
+  border-radius: var(--radius-pill);
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   NUTRISI NUSANTARA PRESET CARDS
+   ========================================================================== */
+.meal-filter-tabs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+  scrollbar-width: none;
+}
+.meal-filter-tabs::-webkit-scrollbar { display: none; }
+
+.meal-filter-chip {
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-ink-secondary);
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.meal-filter-chip.active {
+  background: var(--color-pine);
+  color: #FFFFFF;
+  border-color: var(--color-pine);
+}
+
+.meal-preset-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  margin-bottom: 10px;
+  transition: all var(--duration-fast) ease;
+}
+
+.meal-preset-card:hover {
+  border-color: #D3CDC2;
+}
+
+.meal-preset-info {
+  flex: 1;
+  padding-right: 12px;
+}
+
+.meal-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-bottom: 4px;
+}
+
+.meal-macros-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11.5px;
+  color: var(--color-ink-secondary);
+}
+
+.meal-macros-row span {
+  font-family: var(--font-mono);
+}
+
+.meal-add-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-pine-light);
+  color: var(--color-pine);
+  border: 1px solid var(--color-pine-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 18px;
+  transition: all var(--duration-fast) var(--ease-tactile);
+}
+
+.meal-add-btn:active {
+  transform: scale(0.9);
+  background: var(--color-pine);
+  color: #FFFFFF;
+}
+
+/* ==========================================================================
+   PRAKTISI MEDIS & PANDUAN CARDS
+   ========================================================================== */
+.practitioner-card {
+  padding: 16px;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  margin-bottom: 12px;
+}
+
+.practitioner-top {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.practitioner-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-paper-subtle);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--color-pine);
+  flex-shrink: 0;
+}
+
+.practitioner-meta {
+  flex: 1;
+}
+
+.practitioner-name {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--color-ink);
+  line-height: 1.25;
+}
+
+.practitioner-title {
+  font-size: 12px;
+  color: var(--color-pine);
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.practitioner-license {
+  font-size: 11px;
+  color: var(--color-ink-tertiary);
+  margin-top: 1px;
+}
+
+.practitioner-focus {
+  font-size: 12.5px;
+  color: var(--color-ink-secondary);
+  background: var(--color-paper-subtle);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 12px;
+}
+
+.practitioner-action-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.session-badge {
+  font-size: 11.5px;
+  color: var(--color-ink-secondary);
+  font-weight: 500;
+}
+
+.consult-btn {
+  padding: 8px 16px;
+  background: var(--color-pine);
+  color: #FFFFFF;
+  border: none;
+  border-radius: var(--radius-pill);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--duration-fast) ease;
+}
+
+.consult-btn:active {
+  background: var(--color-pine-hover);
+  transform: scale(0.96);
+}
+
+/* ==========================================================================
+   LINGKAR DEKAT (3-6 REKAN) SOCIAL SUPPORT
+   ========================================================================== */
+.circle-member-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.circle-member-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.circle-member-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.circle-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--color-paper-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--color-ink);
+  position: relative;
+}
+
+.circle-avatar.online::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #2E8A5E;
+  border: 2px solid #FFFFFF;
+}
+
+.circle-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.circle-name {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.circle-status-quote {
+  font-size: 11.5px;
+  color: var(--color-ink-secondary);
+}
+
+.empathy-actions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.empathy-btn {
+  padding: 6px 10px;
+  background: var(--color-paper-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-ink);
+  cursor: pointer;
+  transition: all var(--duration-fast) ease;
+}
+
+.empathy-btn:hover {
+  background: var(--color-pine-light);
+  color: var(--color-pine);
+  border-color: var(--color-pine-border);
+}
+
+.empathy-btn:active {
+  transform: scale(0.92);
+}
+
+/* Cooperative Milestone Card */
+.coop-challenge-card {
+  background: var(--color-ochre-light);
+  border: 1px solid var(--color-ochre-border);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  margin-bottom: 14px;
+}
+
+.coop-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.coop-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+.coop-metric {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-ochre);
+}
+
+/* ==========================================================================
+   BOTTOM NAVIGATION BAR (5 TAB PILLARS)
+   Ergonomi Thumb-Zone: Hari Ini, Ritme, Nutrisi, Panduan, Lingkar
+   ========================================================================== */
+.bottom-nav-container {
+  position: absolute;
+  bottom: 12px;
+  left: 14px;
+  right: 14px;
+  height: 68px;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 8px 24px rgba(28, 30, 29, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 6px;
+  z-index: 60;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+body.night-mode .bottom-nav-container {
+  background: rgba(36, 40, 39, 0.95);
+  border-color: #383F3B;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.nav-tab-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  flex: 1;
+  height: 100%;
+  color: var(--color-ink-secondary);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--duration-fast) ease;
+  position: relative;
+  background: transparent;
+  border: none;
+}
+
+.nav-tab-item svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  fill: none;
+  transition: transform var(--duration-fast) var(--ease-tactile);
+}
+
+.nav-tab-label {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: -0.1px;
+}
+
+.nav-tab-item.active {
+  color: var(--color-pine);
+}
+
+body.night-mode .nav-tab-item.active {
+  color: #62B892;
+}
+
+.nav-tab-item.active svg {
+  transform: translateY(-2px);
+  stroke-width: 2.2;
+}
+
+.nav-tab-item.active .nav-tab-label {
+  font-weight: 700;
+}
+
+.nav-active-pip {
+  position: absolute;
+  bottom: 8px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-pine);
+  opacity: 0;
+  transition: opacity var(--duration-fast) ease;
+}
+
+body.night-mode .nav-active-pip {
+  background: #62B892;
+}
+
+.nav-tab-item.active .nav-active-pip {
+  opacity: 1;
+}
+
+/* ==========================================================================
+   MODAL DIALOGS & DRAWERS (CALM & INFORMATIVE)
+   ========================================================================== */
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(28, 30, 29, 0.45);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+  display: flex;
+  align-items: flex-end;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-normal) ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-drawer {
+  width: 100%;
+  max-height: 85%;
+  background: var(--color-card);
+  border-top-left-radius: var(--radius-xl);
+  border-top-right-radius: var(--radius-xl);
+  padding: 20px 20px 36px 20px;
+  box-shadow: var(--shadow-float);
+  transform: translateY(100%);
+  transition: transform var(--duration-normal) var(--ease-tactile);
+  overflow-y: auto;
+}
+
+.modal-overlay.active .modal-drawer {
+  transform: translateY(0);
+}
+
+.modal-handle-bar {
+  width: 36px;
+  height: 4px;
+  background: var(--color-border);
+  border-radius: 4px;
+  margin: 0 auto 16px auto;
+}
+
+.modal-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.modal-title {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+.modal-close-btn {
+  background: var(--color-paper-subtle);
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-ink);
+}
+
+/* ==========================================================================
+   TOAST NOTIFICATION (EMPATHIC MICRO-FEEDBACK)
+   ========================================================================== */
+.toast-container {
+  position: absolute;
+  top: 60px;
+  left: 20px;
+  right: 20px;
+  z-index: 300;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.toast-item {
+  background: #232725;
+  color: #EDEAE4;
+  padding: 10px 16px;
+  border-radius: var(--radius-pill);
+  font-size: 12.5px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  transform: translateY(-20px);
+  opacity: 0;
+  transition: all var(--duration-normal) var(--ease-tactile);
+}
+
+.toast-item.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.toast-icon {
+  font-size: 15px;
+}

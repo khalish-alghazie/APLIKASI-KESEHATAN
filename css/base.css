@@ -1,0 +1,317 @@
+/**
+ * Selaras — Ritme Sehat Tanpa Beban
+ * Base Styles, Reset, & Mobile Simulator Frame
+ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: var(--font-sans);
+  background-color: #E8E5DD;
+  color: var(--color-ink);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* ==========================================================================
+   DESKTOP / LAPTOP PRESENTATION SIMULATOR
+   Memungkinkan penguji/juri melihat aplikasi dalam frame mobile presisi
+   atau beralih ke mode layar penuh mobile.
+   ========================================================================== */
+.simulator-backdrop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 20%, #EDE9DF 0%, #D8D4CA 100%);
+  padding: 16px;
+  position: relative;
+  transition: background-color var(--duration-normal) ease;
+}
+
+/* Simulator Top Controller Bar */
+.simulator-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 18px;
+  margin-bottom: 12px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-subtle);
+  z-index: 100;
+  font-size: 13px;
+  color: var(--color-ink);
+}
+
+.simulator-controls .brand-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  color: var(--color-pine);
+}
+
+.simulator-controls .brand-tag svg {
+  width: 18px;
+  height: 18px;
+}
+
+.simulator-controls .control-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.control-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-ink-secondary);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: all var(--duration-fast) ease;
+}
+
+.control-btn:hover {
+  background: var(--color-paper-subtle);
+  color: var(--color-ink);
+}
+
+.control-btn.active {
+  background: var(--color-pine);
+  color: #FFFFFF;
+}
+
+/* Mobile Frame Container */
+.mobile-device-frame {
+  width: 393px;
+  height: 852px;
+  max-height: calc(100vh - 80px);
+  background: var(--color-paper);
+  border-radius: 48px;
+  box-shadow: 
+    0 0 0 10px #1E2120,
+    0 0 0 12px #383D3A,
+    0 24px 50px rgba(0, 0, 0, 0.28);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--duration-normal) var(--ease-tactile);
+}
+
+/* Mode Fullscreen / Mobile Direct Viewport */
+body.fullscreen-mode .simulator-backdrop {
+  padding: 0;
+  background: var(--color-paper);
+}
+
+body.fullscreen-mode .simulator-controls {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  margin: 0;
+  opacity: 0.25;
+  transition: opacity 0.2s ease;
+}
+
+body.fullscreen-mode .simulator-controls:hover {
+  opacity: 1;
+}
+
+body.fullscreen-mode .mobile-device-frame {
+  width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* ==========================================================================
+   MOBILE STATUS BAR & HARDWARE CUTOUT
+   ========================================================================== */
+.mobile-status-bar {
+  height: 48px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-ink);
+  background: transparent;
+  z-index: 50;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.status-time {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+
+.island-notch {
+  position: absolute;
+  left: 50%;
+  top: 10px;
+  transform: translateX(-50%);
+  width: 110px;
+  height: 28px;
+  background: #000000;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  box-shadow: inset 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+.island-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #10251C;
+  border: 1px solid #1D4333;
+}
+
+.island-camera {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #141724;
+}
+
+.status-icons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-icons svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* ==========================================================================
+   VIEWPORT SCROLLER & APP CANVAS
+   ========================================================================== */
+.app-viewport {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-paper);
+}
+
+.app-content-scroll {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding: 8px 18px 105px 18px; /* Ruang untuk thumb-zone bottom navigation */
+  position: relative;
+}
+
+/* Custom Minimalist Scrollbar */
+.app-content-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.app-content-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.app-content-scroll::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY CLASSES
+   ========================================================================== */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.headline-editorial {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  line-height: 1.22;
+  font-weight: 500;
+  color: var(--color-ink);
+  letter-spacing: -0.3px;
+}
+
+.subheadline-warm {
+  font-size: 14px;
+  color: var(--color-ink-secondary);
+  font-weight: 400;
+  margin-top: 3px;
+}
+
+.section-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-ink);
+  letter-spacing: -0.2px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-link {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-pine);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Bottom Safe Area / Home Indicator */
+.home-indicator-bar {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 134px;
+  height: 4px;
+  background: var(--color-ink);
+  opacity: 0.35;
+  border-radius: 4px;
+  z-index: 65;
+  pointer-events: none;
+}

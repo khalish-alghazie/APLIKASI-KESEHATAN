@@ -1,0 +1,197 @@
+/**
+ * Selaras — Box Breathing (Pernapasan Kotak 4-4-4-4)
+ * Intervensi Regulasi Stres Otomatis (FR-02.2)
+ * Visual Pacer Organik (Warna River #2E6B7E & Pine #235340)
+ */
+
+.breathing-modal-fullscreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--color-paper);
+  z-index: 250;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 56px 24px 36px 24px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: all var(--duration-normal) var(--ease-tactile);
+}
+
+.breathing-modal-fullscreen.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+body.night-mode .breathing-modal-fullscreen {
+  background: #171A19;
+}
+
+.breathing-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.breathing-exit-btn {
+  background: var(--color-paper-subtle);
+  border: 1px solid var(--color-border);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-ink-secondary);
+  cursor: pointer;
+}
+
+.breathing-timer-badge {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--color-river-light);
+  color: var(--color-river);
+  border: 1px solid var(--color-river-border);
+}
+
+/* Center Visual Breathing Sphere */
+.breathing-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 30px 0;
+}
+
+.breathing-circle-outer {
+  width: 250px;
+  height: 250px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.breathing-svg-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.breathing-ring-bg {
+  fill: none;
+  stroke: var(--color-border);
+  stroke-width: 3;
+}
+
+.breathing-ring-progress {
+  fill: none;
+  stroke: var(--color-river);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 754;
+  stroke-dashoffset: 754;
+  transition: stroke-dashoffset 0.1s linear;
+}
+
+.breathing-orb {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, #DCEEF5 0%, #B2D8E5 100%);
+  border: 1px solid var(--color-river-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(46, 107, 126, 0.18);
+  transition: transform 4s linear;
+  transform: scale(0.8);
+}
+
+body.night-mode .breathing-orb {
+  background: radial-gradient(circle at 40% 35%, #35535E 0%, #1E3740 100%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Dynamic Animation Scaling via JS classes */
+.breathing-orb.inhale {
+  transform: scale(1.22);
+}
+
+.breathing-orb.hold-full {
+  transform: scale(1.22);
+}
+
+.breathing-orb.exhale {
+  transform: scale(0.78);
+}
+
+.breathing-orb.hold-empty {
+  transform: scale(0.78);
+}
+
+.breathing-phase-title {
+  font-family: var(--font-serif);
+  font-size: 21px;
+  font-weight: 600;
+  color: var(--color-ink);
+  letter-spacing: -0.2px;
+  text-align: center;
+}
+
+.breathing-phase-countdown {
+  font-family: var(--font-mono);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--color-river);
+  margin-top: 2px;
+}
+
+/* Bottom Guidance & HR Indicator */
+.breathing-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.breathing-hint-text {
+  font-size: 13.5px;
+  color: var(--color-ink-secondary);
+  text-align: center;
+  max-width: 280px;
+  line-height: 1.45;
+}
+
+.breathing-hr-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 8px 18px;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  color: var(--color-ink-secondary);
+}
+
+.breathing-hr-metric {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--color-clay);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
